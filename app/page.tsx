@@ -193,7 +193,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <>
-      {/* ── ANIMATION 0 — Pizza ── */}
+      {/* ── ANIMATION 0 — GBX PEP Probiotics ── */}
       <ScrollAnimation
         frames={PIZZA_FRAMES}
         pxPerFrame={15}
@@ -203,52 +203,66 @@ export default function Home() {
             peak: 0.04, spread: 0.04,
             content: (
               <div className="flex flex-col items-center justify-center h-full text-center px-4">
-                <p className="text-red-400/50 text-[9px] tracking-[0.7em] uppercase mb-4 sm:mb-6">Artisan Craft</p>
-                <h1 className="text-white text-4xl sm:text-6xl lg:text-8xl font-thin tracking-[0.2em] leading-tight">
-                  PIZZA
+                <p className="text-cyan-400/60 text-[9px] tracking-[0.8em] uppercase mb-4 sm:mb-6">lamare · Probiotics</p>
+                <h1 className="text-white text-5xl sm:text-7xl lg:text-9xl font-thin tracking-[0.25em] leading-tight">
+                  GBX PEP
                 </h1>
-                <p className="text-white/30 text-[9px] tracking-[0.4em] sm:tracking-[0.5em] uppercase mt-8 sm:mt-12">
+                <p className="text-cyan-300/40 text-[9px] tracking-[0.5em] uppercase mt-6 sm:mt-10">
                   Scroll to explore
                 </p>
-                <div className="mt-5 w-px h-8 sm:h-10 bg-gradient-to-b from-red-400/50 to-transparent animate-pulse" />
+                <div className="mt-5 w-px h-8 sm:h-10 bg-gradient-to-b from-cyan-400/60 to-transparent animate-pulse" />
               </div>
             ),
           },
           {
-            peak: 0.35, spread: 0.12,
+            peak: 0.30, spread: 0.12,
             content: (
               <div className="flex items-center justify-start h-full pl-5 sm:pl-14 lg:pl-20">
                 <div className="space-y-2 sm:space-y-3">
-                  <p className="text-red-400/40 text-[9px] tracking-[0.5em] uppercase">Wood Fired</p>
+                  <p className="text-cyan-400/50 text-[9px] tracking-[0.5em] uppercase">Gut Health</p>
                   <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-light tracking-wide leading-snug">
-                    Baked at<br />500° C
+                    1 Billion<br />Live Cultures
                   </h2>
-                  <div className="w-8 sm:w-10 h-px bg-red-400/30" />
+                  <div className="w-8 sm:w-10 h-px bg-cyan-400/30" />
                 </div>
               </div>
             ),
           },
           {
-            peak: 0.65, spread: 0.12,
+            peak: 0.58, spread: 0.12,
             content: (
               <div className="flex items-center justify-end h-full pr-5 sm:pr-14 lg:pr-20">
                 <div className="text-right space-y-2 sm:space-y-3">
-                  <p className="text-red-400/40 text-[9px] tracking-[0.5em] uppercase">Fresh Ingredients</p>
+                  <p className="text-cyan-400/50 text-[9px] tracking-[0.5em] uppercase">Strawberry Cream</p>
                   <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-light tracking-wide leading-snug">
-                    Handcrafted<br />Every Time
+                    Naturally<br />Flavoured
                   </h2>
-                  <div className="ml-auto w-8 sm:w-10 h-px bg-red-400/30" />
+                  <div className="ml-auto w-8 sm:w-10 h-px bg-cyan-400/30" />
                 </div>
               </div>
             ),
           },
           {
-            peak: 0.92, spread: 0.08,
+            peak: 0.82, spread: 0.10,
             content: (
-              <div className="flex flex-col items-center justify-end h-full pb-24 text-center px-4">
-                <p className="text-white/20 text-[9px] tracking-[0.6em] uppercase mb-3">The art of pizza</p>
+              <div className="flex items-center justify-start h-full pl-5 sm:pl-14 lg:pl-20">
+                <div className="space-y-2 sm:space-y-3">
+                  <p className="text-cyan-400/50 text-[9px] tracking-[0.5em] uppercase">Zero Sugar</p>
+                  <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-light tracking-wide leading-snug">
+                    Only<br />12 Calories
+                  </h2>
+                  <div className="w-8 sm:w-10 h-px bg-cyan-400/30" />
+                </div>
+              </div>
+            ),
+          },
+          {
+            peak: 0.96, spread: 0.04,
+            content: (
+              <div className="flex flex-col items-center justify-end h-full pb-20 text-center px-4">
+                <p className="text-white/20 text-[9px] tracking-[0.6em] uppercase mb-3">Feel the difference</p>
                 <h2 className="text-white text-2xl sm:text-3xl font-thin tracking-widest">
-                  Taste the Tradition
+                  Pure. Powerful. Probiotic.
                 </h2>
               </div>
             ),
@@ -256,54 +270,114 @@ export default function Home() {
         ]}
       />
 
-      {/* ── PIZZA SECTIONS ── */}
+      {/* ── GBX PEP SECTIONS ── */}
 
-      {/* Title */}
-      <section className="bg-black py-20 sm:py-32 px-5 sm:px-8 flex flex-col items-center text-center">
-        <SectionLabel><span className="text-red-400/60">Artisan Craft</span></SectionLabel>
-        <h2 className="text-white text-5xl sm:text-7xl lg:text-8xl font-thin tracking-tight leading-none mb-4 sm:mb-6">
-          Artisan<br /><span className="text-red-400">Pizza</span>
+      {/* Hero Title */}
+      <section className="bg-black py-24 sm:py-40 px-5 sm:px-8 flex flex-col items-center text-center">
+        <p className="text-cyan-400/40 text-[9px] tracking-[0.8em] uppercase mb-8 sm:mb-10">lamare · Functional Beverages</p>
+        <h2 className="text-white text-6xl sm:text-8xl lg:text-[120px] font-thin tracking-[0.05em] leading-none mb-3">
+          GBX
         </h2>
-        <p className="text-white/40 text-xs sm:text-sm tracking-widest uppercase">Wood-Fired Edition</p>
-        <div className="mt-10 sm:mt-12 w-14 sm:w-16 h-px bg-red-400/30" />
+        <h2 className="text-cyan-400 text-6xl sm:text-8xl lg:text-[120px] font-thin tracking-[0.05em] leading-none mb-8 sm:mb-10 italic">
+          PEP
+        </h2>
+        <div className="w-px h-12 sm:h-16 bg-gradient-to-b from-cyan-400/50 to-transparent mb-8 sm:mb-10" />
+        <p className="text-white/35 text-sm sm:text-base font-light tracking-[0.12em] max-w-lg leading-7 sm:leading-8">
+          A next-generation probiotic drink engineered for your gut —<br className="hidden sm:block" />
+          with 1 billion live cultures, zero sugar, and real strawberry flavour.
+        </p>
       </section>
 
-      {/* Features */}
-      <section className="bg-[#0a0404] py-16 sm:py-24 px-5 sm:px-8">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5">
+      {/* Stats Strip */}
+      <section className="bg-[#00141a] py-14 sm:py-18 px-5 sm:px-8 border-y border-white/[0.05]">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center gap-8 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.06]">
           {[
-            { num: "01", title: "Wood Fired",       desc: "Cooked in a traditional wood-fired oven at 500°C for that authentic char and flavour." },
-            { num: "02", title: "Fresh Dough",       desc: "Hand-stretched every morning using a 48-hour cold-fermented sourdough recipe." },
-            { num: "03", title: "Local Ingredients", desc: "Seasonal toppings sourced from local farms — fresh, honest, and full of flavour." },
-          ].map(({ num, title, desc }) => (
-            <div key={num} className="bg-[#0a0404] p-7 sm:p-10 flex flex-col gap-4 sm:gap-6">
-              <span className="text-red-400/40 text-[10px] tracking-[0.5em]">{num}</span>
-              <h3 className="text-white text-lg sm:text-xl font-light tracking-wide">{title}</h3>
-              <p className="text-white/35 text-sm leading-6 sm:leading-7">{desc}</p>
+            { value: "1B+",    sub: "Live probiotic cultures" },
+            { value: "0g",     sub: "Sugar" },
+            { value: "12 cal", sub: "Per can" },
+            { value: "355 ml", sub: "Serving size" },
+          ].map(({ value, sub }) => (
+            <div key={sub} className="flex-1 flex flex-col items-center gap-2 py-6 sm:py-0 sm:px-8 first:pt-0 last:pb-0 sm:first:pl-0 sm:last:pr-0">
+              <span className="text-white text-3xl sm:text-4xl font-thin tracking-wide">{value}</span>
+              <span className="text-white/30 text-[9px] tracking-[0.5em] uppercase">{sub}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Temperature stat */}
+      {/* Benefit Cards */}
+      <section className="bg-black py-20 sm:py-32 px-5 sm:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center gap-5 mb-12 sm:mb-16">
+            <div className="w-6 sm:w-8 h-px bg-cyan-400/40" />
+            <p className="text-cyan-400/50 text-[9px] tracking-[0.6em] uppercase">Why GBX PEP</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/[0.04]">
+            {[
+              {
+                num: "01", title: "Gut Health",
+                desc: "Our proprietary GBX blend delivers 1 billion live Lactobacillus cultures per can — enough to colonise and balance your microbiome daily.",
+                detail: "Lactobacillus acidophilus · L. rhamnosus · L. plantarum",
+              },
+              {
+                num: "02", title: "Immune Support",
+                desc: "70% of your immune system lives in your gut. A healthy microbiome means a stronger defence — every sip is a step toward that.",
+                detail: "Vitamin C · Zinc · Prebiotics",
+              },
+              {
+                num: "03", title: "Clean Energy",
+                desc: "No crash, no jitters. B-vitamins and natural caffeine from green tea give you a smooth, sustained lift — without the sugar spike.",
+                detail: "Green tea extract · B6 · B12 · Electrolytes",
+              },
+            ].map(({ num, title, desc, detail }) => (
+              <div key={num} className="bg-black p-8 sm:p-10 flex flex-col gap-5 sm:gap-7 group hover:bg-[#00141a] transition-colors duration-500">
+                <span className="text-cyan-400/30 text-[10px] tracking-[0.5em]">{num}</span>
+                <h3 className="text-white text-xl sm:text-2xl font-thin tracking-wide">{title}</h3>
+                <p className="text-white/35 text-sm leading-7">{desc}</p>
+                <p className="text-cyan-400/40 text-[9px] tracking-[0.35em] uppercase mt-auto pt-4 border-t border-white/[0.06]">{detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pull Quote */}
+      <section className="bg-[#00141a] py-20 sm:py-32 px-5 sm:px-8">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-white/10 text-[60px] sm:text-[80px] font-thin leading-none mb-6 sm:mb-8 select-none">"</p>
+          <p className="text-white text-xl sm:text-3xl lg:text-4xl font-thin tracking-wide leading-[1.6] sm:leading-[1.7]">
+            Your gut is your second brain.<br />
+            <span className="text-white/40">We built GBX PEP so you could feed<br className="hidden sm:block" />both of them — effortlessly.</span>
+          </p>
+          <div className="mt-8 sm:mt-12 flex items-center justify-center gap-4">
+            <div className="w-6 sm:w-8 h-px bg-cyan-400/30" />
+            <span className="text-white/20 text-[9px] tracking-[0.5em] uppercase">Founder · lamare</span>
+            <div className="w-6 sm:w-8 h-px bg-cyan-400/30" />
+          </div>
+        </div>
+      </section>
+
+      {/* Nutrition Facts */}
       <section className="bg-black py-20 sm:py-32 px-5 sm:px-8">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
           <div className="flex-1 text-center sm:text-left">
-            <SectionLabel><span className="text-red-400/50">Oven Temp</span></SectionLabel>
+            <SectionLabel><span className="text-cyan-400/50">Nutrition</span></SectionLabel>
             <p className="text-white text-[80px] sm:text-[120px] lg:text-[160px] font-thin leading-none tracking-tighter">
-              500<span className="text-red-400 text-3xl sm:text-5xl align-top mt-5 sm:mt-8 inline-block">°C</span>
+              12<span className="text-cyan-400 text-3xl sm:text-5xl align-top mt-5 sm:mt-8 inline-block">cal</span>
             </p>
-            <p className="text-white/30 text-xs tracking-widest mt-2">traditional wood-fired heat</p>
+            <p className="text-white/30 text-xs tracking-widest mt-2">per 355 ml can</p>
           </div>
           <div className="flex-1 w-full space-y-4 sm:space-y-6">
             {[
-              { label: "Bake Time",      value: "90 sec" },
-              { label: "Dough Rest",     value: "48 hrs" },
-              { label: "Tomato Sauce",   value: "San Marzano" },
-              { label: "Mozzarella",     value: "Fior di Latte" },
-              { label: "Crust Style",    value: "Sourdough" },
+              { label: "Calories",       value: "12 kcal" },
+              { label: "Total Fat",      value: "0 g" },
+              { label: "Total Carbs",    value: "2 g" },
+              { label: "Sugar",          value: "0 g" },
+              { label: "Protein",        value: "0 g" },
+              { label: "Vitamin C",      value: "90 mg" },
+              { label: "Live Cultures",  value: "1 × 10⁹ CFU" },
             ].map(({ label, value }) => (
-              <div key={label} className="flex items-center justify-between border-b border-white/5 pb-3 sm:pb-4">
+              <div key={label} className="flex items-center justify-between border-b border-white/[0.05] pb-3 sm:pb-4">
                 <span className="text-white/40 text-[10px] sm:text-xs tracking-widest uppercase">{label}</span>
                 <span className="text-white text-sm font-light tracking-wider">{value}</span>
               </div>
@@ -312,26 +386,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Menu highlights */}
-      <section className="bg-[#0a0404] py-16 sm:py-24 px-5 sm:px-8">
+      {/* Flavour Lineup */}
+      <section className="bg-[#00141a] py-20 sm:py-32 px-5 sm:px-8">
         <div className="max-w-5xl mx-auto">
-          <p className="text-red-400/50 text-[9px] tracking-[0.6em] uppercase mb-12 sm:mb-16 text-center">
-            Signature Pies
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center">
+          <div className="flex items-center justify-between mb-12 sm:mb-16">
+            <div className="flex items-center gap-5">
+              <div className="w-6 sm:w-8 h-px bg-cyan-400/40" />
+              <p className="text-cyan-400/50 text-[9px] tracking-[0.6em] uppercase">Flavour Lineup</p>
+            </div>
+            <p className="text-white/15 text-[9px] tracking-widest uppercase hidden sm:block">All sugar-free · All probiotic</p>
+          </div>
+          <div className="space-y-px bg-white/[0.04]">
             {[
-              { emoji: "🍕", label: "Margherita",  pct: 100 },
-              { emoji: "🧀", label: "Four Cheese",  pct: 88 },
-              { emoji: "🥓", label: "Pepperoni",    pct: 95 },
-              { emoji: "🌿", label: "Truffle Veg",  pct: 78 },
-            ].map(({ emoji, label, pct }) => (
-              <div key={label} className="flex flex-col items-center gap-3 sm:gap-4">
-                <span className="text-3xl sm:text-4xl">{emoji}</span>
-                <p className="text-white/50 text-[9px] sm:text-[10px] tracking-widest uppercase">{label}</p>
-                <div className="w-full h-px bg-white/10 relative">
-                  <div className="absolute inset-y-0 left-0 bg-red-400/60" style={{ width: `${pct}%` }} />
+              { name: "Strawberry Cream",   desc: "Real strawberry · Cream finish · Light & refreshing",   tag: "Bestseller" },
+              { name: "Mango Passionfruit", desc: "Tropical blend · Bright acidity · Smooth mouthfeel",    tag: "New" },
+              { name: "Watermelon Mint",    desc: "Cool & crisp · Summer vibes · Zero aftertaste",          tag: "" },
+              { name: "Lemon Ginger",       desc: "Zesty citrus · Warming ginger · Morning ritual",         tag: "" },
+              { name: "Peach Hibiscus",     desc: "Floral sweetness · Antioxidant-rich · Rose finish",      tag: "Limited" },
+            ].map(({ name, desc, tag }) => (
+              <div key={name} className="bg-[#00141a] px-7 sm:px-10 py-6 sm:py-8 flex items-center justify-between gap-6 group hover:bg-[#001f28] transition-colors duration-300">
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex items-center gap-3">
+                    <h4 className="text-white text-base sm:text-lg font-light tracking-wide group-hover:text-cyan-400 transition-colors duration-300">{name}</h4>
+                    {tag && <span className="text-cyan-400/60 text-[8px] tracking-widest uppercase border border-cyan-400/30 px-2 py-0.5">{tag}</span>}
+                  </div>
+                  <p className="text-white/25 text-[10px] sm:text-xs tracking-wider">{desc}</p>
                 </div>
-                <span className="text-red-400/50 text-[10px]">{pct}%</span>
+                <div className="w-2 h-2 rounded-full bg-cyan-400/30 group-hover:bg-cyan-400/70 transition-colors duration-300 shrink-0" />
               </div>
             ))}
           </div>
@@ -339,15 +420,26 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="bg-black py-28 sm:py-40 px-5 sm:px-8 flex flex-col items-center text-center">
-        <p className="text-white/25 text-[9px] tracking-[0.6em] uppercase mb-6 sm:mb-8">Reserve your table</p>
-        <h2 className="text-white text-3xl sm:text-5xl lg:text-6xl font-thin tracking-wide leading-tight mb-10 sm:mb-12">
-          Real Fire.<br /><span className="text-red-400">Real Flavour.</span>
+      <section className="bg-black py-32 sm:py-48 px-5 sm:px-8 flex flex-col items-center text-center">
+        <p className="text-white/20 text-[9px] tracking-[0.7em] uppercase mb-8 sm:mb-10">Start your gut journey</p>
+        <h2 className="text-white text-4xl sm:text-6xl lg:text-7xl font-thin tracking-wide leading-tight mb-4">
+          Pure. Powerful.
         </h2>
-        <button className="group relative overflow-hidden border border-red-400/40 text-red-400 text-[10px] sm:text-xs tracking-[0.4em] uppercase px-10 sm:px-12 py-4 transition-all duration-500 hover:border-red-400">
-          <span className="relative z-10 group-hover:text-black transition-colors duration-500">Book Now</span>
-          <span className="absolute inset-0 bg-red-400 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-        </button>
+        <h2 className="text-cyan-400 text-4xl sm:text-6xl lg:text-7xl font-thin tracking-wide leading-tight mb-12 sm:mb-16 italic">
+          Probiotic.
+        </h2>
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+          <button className="group relative overflow-hidden border border-cyan-400/50 text-cyan-400 text-[10px] sm:text-xs tracking-[0.4em] uppercase px-12 sm:px-14 py-4 transition-all duration-500 hover:border-cyan-400">
+            <span className="relative z-10 group-hover:text-black transition-colors duration-500">Shop Now</span>
+            <span className="absolute inset-0 bg-cyan-400 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+          </button>
+          <button className="text-white/30 text-[10px] sm:text-xs tracking-[0.4em] uppercase px-10 py-4 border border-white/10 hover:border-white/30 hover:text-white/60 transition-all duration-500">
+            Learn the Science
+          </button>
+        </div>
+        <p className="text-white/10 text-[9px] tracking-widest mt-16 sm:mt-20 uppercase">
+          lamare · Functional Beverages · Free shipping over $40
+        </p>
       </section>
 
       {/* ── ANIMATION 1 — Orange Juice ── */}
