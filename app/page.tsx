@@ -15,9 +15,10 @@ interface ScrollAnimationProps {
   frames: string[];
   pxPerFrame?: number;
   overlays?: Overlay[];
+  cover?: boolean;
 }
 
-function ScrollAnimation({ frames, pxPerFrame = 130, overlays = [] }: ScrollAnimationProps) {
+function ScrollAnimation({ frames, pxPerFrame = 130, overlays = [], cover = false }: ScrollAnimationProps) {
   const TOTAL     = frames.length;
   const wrapRef   = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -29,7 +30,7 @@ function ScrollAnimation({ frames, pxPerFrame = 130, overlays = [] }: ScrollAnim
   const [loadPct, setLoadPct] = useState(0);
   const [prog,    setProg]    = useState(0);
 
-  /* ── letterbox-draw: image always fits within the canvas ── */
+  /* ── draw: cover fills viewport, letterbox fits inside ── */
   const draw = useCallback((idx: number) => {
     const c = canvasRef.current;
     if (!c) return;
@@ -39,11 +40,13 @@ function ScrollAnimation({ frames, pxPerFrame = 130, overlays = [] }: ScrollAnim
     if (!img?.complete) return;
 
     ctx.clearRect(0, 0, c.width, c.height);
-    const scale = Math.min(c.width / img.naturalWidth, c.height / img.naturalHeight);
+    const scale = cover
+      ? Math.max(c.width / img.naturalWidth, c.height / img.naturalHeight)
+      : Math.min(c.width / img.naturalWidth, c.height / img.naturalHeight);
     const dx    = (c.width  - img.naturalWidth  * scale) / 2;
     const dy    = (c.height - img.naturalHeight * scale) / 2;
     ctx.drawImage(img, dx, dy, img.naturalWidth * scale, img.naturalHeight * scale);
-  }, []);
+  }, [cover]);
 
   /* ── size canvas to the viewport (and redraw on resize) ── */
   const sizeCanvas = useCallback(() => {
@@ -162,6 +165,10 @@ function ScrollAnimation({ frames, pxPerFrame = 130, overlays = [] }: ScrollAnim
 /* ══════════════════════════════════════════════════════════
    Frame lists
 ══════════════════════════════════════════════════════════ */
+const PIZZA_FRAMES = Array.from({ length: 792 }, (_, i) =>
+  `/animation/frame_${String(i + 1).padStart(4, "0")}.png`
+);
+
 const JUICE_FRAMES = [
   ...Array.from({ length: 20 }, (_, i) =>
     `/3d-images/Make_3d_video_4be094ddec_${String(i).padStart(3, "0")}.jpg`),
@@ -186,6 +193,163 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <>
+      {/* ── ANIMATION 0 — Pizza ── */}
+      <ScrollAnimation
+        frames={PIZZA_FRAMES}
+        pxPerFrame={15}
+        cover
+        overlays={[
+          {
+            peak: 0.04, spread: 0.04,
+            content: (
+              <div className="flex flex-col items-center justify-center h-full text-center px-4">
+                <p className="text-red-400/50 text-[9px] tracking-[0.7em] uppercase mb-4 sm:mb-6">Artisan Craft</p>
+                <h1 className="text-white text-4xl sm:text-6xl lg:text-8xl font-thin tracking-[0.2em] leading-tight">
+                  PIZZA
+                </h1>
+                <p className="text-white/30 text-[9px] tracking-[0.4em] sm:tracking-[0.5em] uppercase mt-8 sm:mt-12">
+                  Scroll to explore
+                </p>
+                <div className="mt-5 w-px h-8 sm:h-10 bg-gradient-to-b from-red-400/50 to-transparent animate-pulse" />
+              </div>
+            ),
+          },
+          {
+            peak: 0.35, spread: 0.12,
+            content: (
+              <div className="flex items-center justify-start h-full pl-5 sm:pl-14 lg:pl-20">
+                <div className="space-y-2 sm:space-y-3">
+                  <p className="text-red-400/40 text-[9px] tracking-[0.5em] uppercase">Wood Fired</p>
+                  <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-light tracking-wide leading-snug">
+                    Baked at<br />500° C
+                  </h2>
+                  <div className="w-8 sm:w-10 h-px bg-red-400/30" />
+                </div>
+              </div>
+            ),
+          },
+          {
+            peak: 0.65, spread: 0.12,
+            content: (
+              <div className="flex items-center justify-end h-full pr-5 sm:pr-14 lg:pr-20">
+                <div className="text-right space-y-2 sm:space-y-3">
+                  <p className="text-red-400/40 text-[9px] tracking-[0.5em] uppercase">Fresh Ingredients</p>
+                  <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-light tracking-wide leading-snug">
+                    Handcrafted<br />Every Time
+                  </h2>
+                  <div className="ml-auto w-8 sm:w-10 h-px bg-red-400/30" />
+                </div>
+              </div>
+            ),
+          },
+          {
+            peak: 0.92, spread: 0.08,
+            content: (
+              <div className="flex flex-col items-center justify-end h-full pb-24 text-center px-4">
+                <p className="text-white/20 text-[9px] tracking-[0.6em] uppercase mb-3">The art of pizza</p>
+                <h2 className="text-white text-2xl sm:text-3xl font-thin tracking-widest">
+                  Taste the Tradition
+                </h2>
+              </div>
+            ),
+          },
+        ]}
+      />
+
+      {/* ── PIZZA SECTIONS ── */}
+
+      {/* Title */}
+      <section className="bg-black py-20 sm:py-32 px-5 sm:px-8 flex flex-col items-center text-center">
+        <SectionLabel><span className="text-red-400/60">Artisan Craft</span></SectionLabel>
+        <h2 className="text-white text-5xl sm:text-7xl lg:text-8xl font-thin tracking-tight leading-none mb-4 sm:mb-6">
+          Artisan<br /><span className="text-red-400">Pizza</span>
+        </h2>
+        <p className="text-white/40 text-xs sm:text-sm tracking-widest uppercase">Wood-Fired Edition</p>
+        <div className="mt-10 sm:mt-12 w-14 sm:w-16 h-px bg-red-400/30" />
+      </section>
+
+      {/* Features */}
+      <section className="bg-[#0a0404] py-16 sm:py-24 px-5 sm:px-8">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5">
+          {[
+            { num: "01", title: "Wood Fired",       desc: "Cooked in a traditional wood-fired oven at 500°C for that authentic char and flavour." },
+            { num: "02", title: "Fresh Dough",       desc: "Hand-stretched every morning using a 48-hour cold-fermented sourdough recipe." },
+            { num: "03", title: "Local Ingredients", desc: "Seasonal toppings sourced from local farms — fresh, honest, and full of flavour." },
+          ].map(({ num, title, desc }) => (
+            <div key={num} className="bg-[#0a0404] p-7 sm:p-10 flex flex-col gap-4 sm:gap-6">
+              <span className="text-red-400/40 text-[10px] tracking-[0.5em]">{num}</span>
+              <h3 className="text-white text-lg sm:text-xl font-light tracking-wide">{title}</h3>
+              <p className="text-white/35 text-sm leading-6 sm:leading-7">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Temperature stat */}
+      <section className="bg-black py-20 sm:py-32 px-5 sm:px-8">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+          <div className="flex-1 text-center sm:text-left">
+            <SectionLabel><span className="text-red-400/50">Oven Temp</span></SectionLabel>
+            <p className="text-white text-[80px] sm:text-[120px] lg:text-[160px] font-thin leading-none tracking-tighter">
+              500<span className="text-red-400 text-3xl sm:text-5xl align-top mt-5 sm:mt-8 inline-block">°C</span>
+            </p>
+            <p className="text-white/30 text-xs tracking-widest mt-2">traditional wood-fired heat</p>
+          </div>
+          <div className="flex-1 w-full space-y-4 sm:space-y-6">
+            {[
+              { label: "Bake Time",      value: "90 sec" },
+              { label: "Dough Rest",     value: "48 hrs" },
+              { label: "Tomato Sauce",   value: "San Marzano" },
+              { label: "Mozzarella",     value: "Fior di Latte" },
+              { label: "Crust Style",    value: "Sourdough" },
+            ].map(({ label, value }) => (
+              <div key={label} className="flex items-center justify-between border-b border-white/5 pb-3 sm:pb-4">
+                <span className="text-white/40 text-[10px] sm:text-xs tracking-widest uppercase">{label}</span>
+                <span className="text-white text-sm font-light tracking-wider">{value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Menu highlights */}
+      <section className="bg-[#0a0404] py-16 sm:py-24 px-5 sm:px-8">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-red-400/50 text-[9px] tracking-[0.6em] uppercase mb-12 sm:mb-16 text-center">
+            Signature Pies
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center">
+            {[
+              { emoji: "🍕", label: "Margherita",  pct: 100 },
+              { emoji: "🧀", label: "Four Cheese",  pct: 88 },
+              { emoji: "🥓", label: "Pepperoni",    pct: 95 },
+              { emoji: "🌿", label: "Truffle Veg",  pct: 78 },
+            ].map(({ emoji, label, pct }) => (
+              <div key={label} className="flex flex-col items-center gap-3 sm:gap-4">
+                <span className="text-3xl sm:text-4xl">{emoji}</span>
+                <p className="text-white/50 text-[9px] sm:text-[10px] tracking-widest uppercase">{label}</p>
+                <div className="w-full h-px bg-white/10 relative">
+                  <div className="absolute inset-y-0 left-0 bg-red-400/60" style={{ width: `${pct}%` }} />
+                </div>
+                <span className="text-red-400/50 text-[10px]">{pct}%</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-black py-28 sm:py-40 px-5 sm:px-8 flex flex-col items-center text-center">
+        <p className="text-white/25 text-[9px] tracking-[0.6em] uppercase mb-6 sm:mb-8">Reserve your table</p>
+        <h2 className="text-white text-3xl sm:text-5xl lg:text-6xl font-thin tracking-wide leading-tight mb-10 sm:mb-12">
+          Real Fire.<br /><span className="text-red-400">Real Flavour.</span>
+        </h2>
+        <button className="group relative overflow-hidden border border-red-400/40 text-red-400 text-[10px] sm:text-xs tracking-[0.4em] uppercase px-10 sm:px-12 py-4 transition-all duration-500 hover:border-red-400">
+          <span className="relative z-10 group-hover:text-black transition-colors duration-500">Book Now</span>
+          <span className="absolute inset-0 bg-red-400 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+        </button>
+      </section>
+
       {/* ── ANIMATION 1 — Orange Juice ── */}
       <ScrollAnimation
         frames={JUICE_FRAMES}
